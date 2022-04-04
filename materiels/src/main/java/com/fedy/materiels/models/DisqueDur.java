@@ -1,13 +1,12 @@
 package com.fedy.materiels.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 @Data
@@ -17,12 +16,17 @@ import java.util.Date;
 public class DisqueDur {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int IdDisqueDur;
-    private String Type;
-    private String Marque;
-    private String Capacite;
-    private Double USB;
-    private Date DateAjout;
+    private int idDisqueDur;
+    private String type;
+    private String marque;
+    private String capacite;
+    private Double usb;
+    private Date dateAjout;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "ordinateur")
+    private Ordinateur ordinateur;
 
 /**    public DisqueDur() {
         super();

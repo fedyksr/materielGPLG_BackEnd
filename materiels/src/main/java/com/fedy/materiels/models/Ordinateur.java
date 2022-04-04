@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+import org.apache.tomcat.jni.Address;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -36,6 +34,19 @@ public class Ordinateur {
     @OneToMany(mappedBy="ordina")
     @JsonManagedReference
     private List<Imprimante>imprimantesliee;
+
+    @OneToMany(mappedBy = "ordinateur")
+    @JsonManagedReference
+    private List<AutreEquipement>autreequipementsliee;
+
+    @OneToMany(mappedBy = "ordinateur")
+    @JsonManagedReference
+    private List<DisqueDur>disquedurliee;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idEcran", referencedColumnName = "idEcran")
+    private Ecran ecran;
+
 
     /**public int getIdOrdinateur() {
         return IdOrdinateur;

@@ -59,7 +59,7 @@ public class OrdinateurController {
 }**/
 @RestController
 @RequestMapping("/apiOrdinateur")
-@CrossOrigin(origins = "http://127.0.0.1:4200")
+@CrossOrigin(origins = "http://127.0.0.1:4200/")
 public class OrdinateurController {
     @Autowired
     OrdinateurService ordinateurService;
@@ -69,22 +69,22 @@ public class OrdinateurController {
         return ordinateurService.getAllOrdinateur();
     }
 
-    @RequestMapping(value = "/{IdOrdinateur}",method = RequestMethod.GET)
-    public Ordinateur getOrdinateurById(@PathVariable("IdOrdinateur") int IdOrdinateur){
-        return ordinateurService.getOrdinateur(IdOrdinateur);
+    @RequestMapping(value = "/{idOrdinateur}",method = RequestMethod.GET)
+    public Ordinateur getOrdinateurById(@PathVariable("idOrdinateur") int idOrdinateur){
+        return ordinateurService.getOrdinateur(idOrdinateur);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public Ordinateur createOrdinateur(@RequestBody Ordinateur ordinateur){
         return ordinateurService.saveOrdinateur(ordinateur);
     }
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value="/{idOrdinateur}" ,method = RequestMethod.PUT)
     public Ordinateur updateOrdinateur(@RequestBody Ordinateur ordinateur){
         return ordinateurService.updateOrdinateur(ordinateur);
     }
 
-    @RequestMapping(value="/{IdOrdinateur}",method = RequestMethod.DELETE)
-    public void deleteOrdinateurById(@PathVariable("IdOrdinateur") int IdOrdinateur){
-        ordinateurService.deleteOrdinateurById(IdOrdinateur);
+    @RequestMapping(value="/{idOrdinateur}",method = RequestMethod.DELETE)
+    public void deleteOrdinateurById(@PathVariable("idOrdinateur") int idOrdinateur){
+        ordinateurService.deleteOrdinateurById(idOrdinateur);
     }
 }

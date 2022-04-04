@@ -1,5 +1,6 @@
 package com.fedy.materiels.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,11 +15,16 @@ import java.util.Date;
 public class AutreEquipement{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int IdAutreEquipement;
-    private String NomAutreEquipement;
-    private String Marque;
-    private String Description;
-    private Date DateAjout;
+    private int idAutreEquipement;
+    private String nomAutreEquipement;
+    private String marque;
+    private String description;
+    private Date dateAjout;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "ordinateur")
+    private Ordinateur ordinateur;
 
     /**public AutreEquipement() {
         super();

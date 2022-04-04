@@ -8,7 +8,7 @@ public interface OrdinateurService {
     Ordinateur saveOrdinateur(Ordinateur ordinateur);
     Ordinateur updateOrdinateur(Ordinateur ordinateur);
     void deleteOrdinateur(Ordinateur ordinateur);
-    void deleteOrdinateurById(int IdOrdinateur);
-    Ordinateur getOrdinateur(int IdOrdinateur);
+    void deleteOrdinateurById(int idOrdinateur);
+    Ordinateur getOrdinateur(int idOrdinateur);
     List<Ordinateur> getAllOrdinateur();
 }

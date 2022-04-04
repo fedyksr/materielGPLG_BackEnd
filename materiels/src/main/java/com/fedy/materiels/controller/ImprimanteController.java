@@ -82,13 +82,13 @@ public class ImprimanteController {
         return imprimanteService.saveImprimante(imprimante);
     }
 
-    @RequestMapping(value="/{IdImprimante}",method = RequestMethod.PUT)
+    @RequestMapping(value="/{idImprimante}",method = RequestMethod.PUT)
     public Imprimante updateImprimante(@RequestBody Imprimante imprimante){
         return imprimanteService.updateImprimante(imprimante);
     }
 
-    @RequestMapping(value="/{IdImprimante}",method = RequestMethod.DELETE)
-    public void deleteImprimanteById(@PathVariable("IdImprimante") int IdImprimante){
-        imprimanteService.deleteImprimanteById(IdImprimante);
+    @RequestMapping(value="/{idImprimante}",method = RequestMethod.DELETE)
+    public void deleteImprimanteById(@PathVariable("idImprimante") int idImprimante){
+        imprimanteService.deleteImprimanteById(idImprimante);
     }
 }

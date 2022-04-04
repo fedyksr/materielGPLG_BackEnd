@@ -29,6 +29,7 @@ public class ImprimanteServiceImpl implements ImprimanteService{
 
     @Override
     public Imprimante getImprimante(int IdImprimante) {
+
         return imprimanteRepo.findById(IdImprimante).orElse(null);
     }
 

@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -17,8 +14,12 @@ import java.util.Date;
 public class Ecran {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int IdEcran;
-    private String Marque;
-    private String Pouce;
-    private Date DateAjout;
+    private int idEcran;
+    private String marque;
+    private String pouce;
+    private Date dateAjout;
+
+
+    @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL,mappedBy = "ecran")
+    private Ordinateur ordinateur;
 }

@@ -27,13 +27,13 @@ public class OrdinateurServiceImpl implements OrdinateurService{
     }
 
     @Override
-    public void deleteOrdinateurById(int IdOrdinateur) {
-        ordinateurRepo.deleteById(IdOrdinateur);
+    public void deleteOrdinateurById(int idOrdinateur) {
+        ordinateurRepo.deleteById(idOrdinateur);
     }
 
     @Override
-    public Ordinateur getOrdinateur(int IdOrdinateur) {
-        return ordinateurRepo.findById(IdOrdinateur).get();
+    public Ordinateur getOrdinateur(int idOrdinateur) {
+        return ordinateurRepo.findById(idOrdinateur).orElse(null);
     }
 
     @Override

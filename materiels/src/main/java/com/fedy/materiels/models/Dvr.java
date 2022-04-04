@@ -17,11 +17,11 @@ import java.util.Date;
 public class Dvr {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int IdDvr;
-    private String Port;
-    private int NombreCameras;
-    private String Marque;
-    private Date DateAjout;
+    private int idDvr;
+    private String port;
+    private int nombreCameras;
+    private String marque;
+    private Date dateAjout;
 
    /** public Dvr() {
         super();
